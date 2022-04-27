@@ -1,6 +1,7 @@
+package src;
 import java.util.*;
 
-class Regression {
+public class Regression {
 
   public static Double r_squared(List<Integer> y, List<Double> y_hat) {
     return 1 - relative_square_error(y, y_hat);
@@ -28,7 +29,7 @@ class Regression {
       y.stream().mapToDouble(a -> a).average().orElse(0.0) // mean
     );
 
-    return (summation(y, y_hat, "rae") / summation(y, y_means, "rae"));
+    return summation(y, y_hat, "rae") / summation(y, y_means, "rae");
   }
 
   public static Double root_mean_squared_error(
@@ -47,8 +48,7 @@ class Regression {
     List<Integer> y,
     List<Double> y_hat
   ) {
-    String typeName = "mae";
-    return summation(y, y_hat, typeName) / y.size();
+    return summation(y, y_hat, "mae") / y.size();
   }
 
   private static Double summation(
@@ -79,6 +79,7 @@ class Regression {
   }
 
   public static void main(String[] args) {
+
     List<Integer> y = Arrays.asList(10, 20, 30, 40, 50);
     List<Double> y_hat = Arrays.asList(3.0, 12.0, 20.0, 42.0, 60.0);
 
