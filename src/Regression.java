@@ -1,4 +1,5 @@
 package src;
+
 import java.util.*;
 
 public class Regression {
@@ -76,18 +77,5 @@ public class Regression {
     }
 
     return sum;
-  }
-
-  public static void main(String[] args) {
-
-    List<Integer> y = Arrays.asList(10, 20, 30, 40, 50);
-    List<Double> y_hat = Arrays.asList(3.0, 12.0, 20.0, 42.0, 60.0);
-
-    System.out.println("MAE: " + Regression.mean_absolute_error(y, y_hat));
-    System.out.println("MSE: " + Regression.mean_squared_error(y, y_hat));
-    System.out.println("RMSE: " + Regression.root_mean_squared_error(y, y_hat));
-    System.out.println("RAE: " + Regression.relative_absolute_error(y, y_hat));
-    System.out.println("RSE: " + Regression.relative_square_error(y, y_hat));
-    System.out.println("rSquared: " + Regression.r_squared(y, y_hat));
   }
 }
